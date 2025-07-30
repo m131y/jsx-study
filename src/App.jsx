@@ -1,17 +1,39 @@
 import { Fragment, useState } from "react";
 import "./App.css";
+import UserCard from "./components/UserCard";
+
+const userData = [
+  {
+    id: 1,
+    name: "h662",
+    job: "Programmer",
+    imageSrc: "avatar.webp",
+  },
+  {
+    id: 2,
+    name: "홍성현",
+    job: "우주비행사",
+    imageSrc: "avatar2.webp",
+  },
+  {
+    id: 3,
+    name: "가나다",
+    job: "작가",
+    imageSrc: "avatar3.jpeg",
+  },
+];
 
 const App = () => {
-  const [name, setName] = useState("my131");
-  const [job, setJob] = useState("Programmer");
-  setName;
   return (
     <>
-      <div className="card">
-        <img src="./avatar.webp" alt="avatar"></img>
-        <h2>{name}</h2>
-        <h2>{job}</h2>
-      </div>
+      {userData.map((value) => (
+        <UserCard
+          key={value.id}
+          name={value.name}
+          job={value.job}
+          imageSrc={value.imageSrc}
+        />
+      ))}
     </>
   );
 };
